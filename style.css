@@ -77,6 +77,18 @@ main {
   opacity: 1;
 }
 
+.player--active .name::after{
+  content: "\2022";
+  font-size: 47px;
+  position: absolute;
+  color: #eb4d4d;
+  top: -7px;
+  right: -30px;
+  bottom: 0px;
+}
+
+
+
 .current {
   background-color: #c7365f;
   opacity: 0.8;
@@ -169,3 +181,13 @@ main {
 .hidden {
   display: none;
 }
+
+.winner {
+  background-color: #f7f7f7;
+}
+
+.winner .name{
+  font-weight: 300;
+  color: #eb4d4d;;
+}
+
