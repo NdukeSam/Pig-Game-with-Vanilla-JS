@@ -29,6 +29,7 @@ main {
   height: 60rem;
   background-color: rgba(255, 255, 255, 0.35);
   backdrop-filter: blur(200px);
+  -webkit-backdrop-filter: blur(200px);
   filter: blur();
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
   border-radius: 9px;
@@ -129,6 +130,8 @@ main {
   background-color: white;
   background-color: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
 
   padding: 0.7rem 2.5rem;
   border-radius: 50rem;
@@ -162,7 +165,16 @@ main {
 
 .dice {
   position: absolute;
-  left: 50%;
+  left: 56%;
+  top: 16.5rem;
+  transform: translateX(-50%);
+  height: 10rem;
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
+}
+
+#dice-2{
+  position: absolute;
+  left: 44%;
   top: 16.5rem;
   transform: translateX(-50%);
   height: 10rem;
@@ -191,3 +203,32 @@ main {
   color: #eb4d4d;;
 }
 
+.final-score{
+  
+  border-radius: 50px 50px 50px 50px;
+  padding: 10px;
+  outline: transparent;
+  border: 1px solid transparent;
+  background-color: thistle;
+  color: #eb4d4d;
+}
+
+#input-form{
+  position: absolute;
+  bottom: 30px;
+  right: 50%;
+  transform: translateX(50%);
+}
+
+.btn--reset{
+  background-color: rgb(44, 143, 236);
+  border-radius: 10px 50px 50px 10px;
+  padding: 8px;
+  outline: transparent;
+  border: 1px solid transparent;
+  position: relative;
+  top: 0px;
+  right: 40px;
+
+
+}
