@@ -1,18 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,600" type="text/css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:100,300,600"
+      type="text/css"
+    />
     <!-- <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" type="text/css"> -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="help.css" />
     <title>Pig Game</title>
-</head>
-<body>
-  <main>
-    <section class="player player--0 player--active">
-        <h2 class="name" id="name--0">Player 1 <span class="active-dot"></span></h2>
+  </head>
+  <body>
+    <div class="help">
+      <div class="help-btn">?</div>
+      <div class="help-text">
+        <p>
+          Each turn, a player repeatedly rolls a die until either a "1" is
+          called or the player decides to "hold":
+        </p>
+        <div class="help-text-list-div">
+          <ul>
+            <li>
+              If the player rolls a "1", they score nothing and it becomes the
+              next player's turn.
+            </li>
+            <li>
+              If the player rolls any other number, it is added to their turn
+              total and the player's turn continues
+            </li>
+            <li>
+              If the player chooses to "hold", their turn total is added to
+              their score, and it becomes the next player's turn.
+            </li>
+          </ul>
+        </div>
+        <p>The first player to score 100 or more points wins.</p>
+      </div>
+    </div>
+    <main>
+      <section class="player player--0 player--active">
+        <h2 class="name" id="name--0">
+          Player 1 <span class="active-dot"></span>
+        </h2>
         <p class="score" id="score--0">43</p>
         <div class="current">
           <p class="current-label">Current</p>
@@ -26,20 +59,19 @@
           <p class="current-label">Current</p>
           <p class="current-score" id="current--1">0</p>
         </div>
-        
       </section>
 
-      <img src="img/dice-5.png" alt="Playing dice" class="dice" id="dice-1">
-      <img src="img/dice-3.png" alt="Playing dice" class="dice" id="dice-2">
+      <img src="img/dice-5.png" alt="Playing dice" class="dice" id="dice-1" />
+      <img src="img/dice-3.png" alt="Playing dice" class="dice" id="dice-2" />
       <button class="btn btn--new">🔄 New game</button>
       <button class="btn btn--roll">🎲 Roll dice</button>
       <button class="btn btn--hold">📥 Hold</button>
       <form action="" id="input-form">
-          <input type="text" class="final-score" placeholder="Final score">
-        </form>
-
-  </main>
-  <!-- <script src="app.js"></script> -->
-  <script src="challenge6.js"></script>
-</body>
+        <input type="text" class="final-score" placeholder="Final score" />
+      </form>
+    </main>
+    <!-- <script src="app.js"></script> -->
+    <script src="challenge6.js"></script>
+    <script src="help.js"></script>
+  </body>
 </html>
