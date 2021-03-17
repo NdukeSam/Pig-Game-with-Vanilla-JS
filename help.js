@@ -9,3 +9,7 @@ helpBtn.addEventListener("click", (e) => {
 window.addEventListener("click", () => {
   helpText.classList.remove("help-text-show");
 });
+
+window.addEventListener("load", () => {
+  helpText.classList.add("help-text-show");
+});
