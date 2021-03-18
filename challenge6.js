@@ -84,6 +84,7 @@ document.querySelector(".btn--hold").addEventListener("click", function () {
             //Set gamePlayer state variable to false
             gamePlaying = false;
         } else {
+            alert('rolled a 1, lost your turn!')
             //Next player
             nextPlayer();
         }
