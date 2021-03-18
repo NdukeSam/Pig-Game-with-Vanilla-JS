@@ -11,7 +11,8 @@ GAME RULES:
 var scores, roundScore, activePlayer, gamePlaying;
 init();
 
-var previousDice;
+
+// var previousDice;
 
 document.querySelector(".btn--roll").addEventListener("click", function () {
     if (gamePlaying) {
@@ -23,8 +24,8 @@ document.querySelector(".btn--roll").addEventListener("click", function () {
         displayDice();
         document.getElementById("dice-1").src = "img/dice-" + dice1 + ".png";
         document.getElementById("dice-2").src = "img/dice-" + dice2 + ".png";
-
-        /* if (dice === 6 && previousDice === 6) {
+ 
+  /* if (dice === 6 && previousDice === 6) {
         console.log('twice!');
         //Player loses Global score
         scores[activePlayer] = 0;
@@ -33,21 +34,16 @@ document.querySelector(".btn--roll").addEventListener("click", function () {
     }
     */
 
-        // 3. Update the round score IF the rolled number was NOT a 1
-        if (dice1 !== 1 && dice2 !== 1) {
-            //Add score
-            roundScore += dice1 + dice2;
-            document.querySelector(
-                "#current--" + activePlayer
-            ).textContent = roundScore;
-        } else {
-            //Next Player
-            nextPlayer();
-        }
 
-        // previousDice = dice;
-        console.log(dice1);
-        console.log(dice2);
+    // 3. Update the round score IF the rolled number was NOT a 1
+     if (dice1 !== 1 && dice2  !== 1) {
+        //Add score
+        roundScore += dice1 + dice2;
+        document.querySelector('#current--' + activePlayer).textContent  = roundScore;
+    }else {
+        alert('You rolled a 1! Lost your turn');
+        //Next Player
+        nextPlayer();
     }
 });
 
