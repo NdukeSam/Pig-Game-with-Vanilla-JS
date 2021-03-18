@@ -40,6 +40,7 @@ document.querySelector(".btn--roll").addEventListener("click", function () {
         roundScore += dice1 + dice2;
         document.querySelector('#current--' + activePlayer).textContent  = roundScore;
     }else {
+        alert('rolled a 1, lost your turn!')
         //Next Player
         nextPlayer();
     }
@@ -84,7 +85,6 @@ document.querySelector(".btn--hold").addEventListener("click", function () {
             //Set gamePlayer state variable to false
             gamePlaying = false;
         } else {
-            alert('rolled a 1, lost your turn!')
             //Next player
             nextPlayer();
         }
