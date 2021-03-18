@@ -11,8 +11,7 @@ GAME RULES:
 var scores, roundScore, activePlayer, gamePlaying;
 init();
 
-var previousDice;
-
+// var previousDice;
 
 document.querySelector('.btn--roll').addEventListener('click', function () {
     
@@ -43,6 +42,7 @@ document.querySelector('.btn--roll').addEventListener('click', function () {
         roundScore += dice1 + dice2;
         document.querySelector('#current--' + activePlayer).textContent  = roundScore;
     }else {
+        alert('You rolled a 1! Lost your turn');
         //Next Player
         nextPlayer();
     }
