@@ -10,7 +10,7 @@ GAME RULES:
 */
 var scores, roundScore, activePlayer, gamePlaying;
 
-var previousDice;
+// var previousDice;
 
 const gameDice1 = document.querySelector("#dice-1");
 const gameDice2 = document.querySelector("#dice-2");
@@ -88,6 +88,7 @@ function roll() {
         ).textContent = roundScore;
 
         if (![dice1, dice2].includes(1)) {
+            alert("You rolled a 1! Lost your turn");
             nextPlayer();
         }
 

@@ -29,16 +29,17 @@
               next player's turn.
             </li>
             <li>
-              If the player rolls any other number, it is added to their turn
+              If the player rolls any other number, it is added to their current
               total and the player's turn continues
             </li>
             <li>
-              If the player chooses to "hold", their turn total is added to
-              their score, and it becomes the next player's turn.
+              If the player chooses to "hold", their current total is added to
+              their global score, and it becomes the next player's turn.
             </li>
           </ul>
         </div>
         <p>The first player to score 100 or more points wins.</p>
+        <p> <em>P.S</em> You can decide to set your winning score in the input below </p>
       </div>
     </div>
     <main>
@@ -46,6 +47,7 @@
         <h2 class="name" id="name--0">
           Player 1 <span class="active-dot"></span>
         </h2>
+
         <p class="score" id="score--0">43</p>
         <div class="current">
           <p class="current-label">Current</p>
