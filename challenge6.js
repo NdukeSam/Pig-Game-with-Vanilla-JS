@@ -8,8 +8,8 @@ GAME RULES:
 - The first player to reach 100 points on Global score wins the game.
 
 */
-var scores, roundScore, activePlayer, gamePlaying;
 
+var scores, roundScore, activePlayer, gamePlaying;
 // var previousDice;
 
 const gameDice1 = document.querySelector("#dice-1");
@@ -19,9 +19,7 @@ const player1 = document.querySelector(".player--1");
 const currentScore0 = document.querySelector("#current--0");
 const currentScore1 = document.querySelector("#current--1");
 
-const rollBtn = document.querySelector(".btn--roll");
-rollBtn.addEventListener("click", roll);
-
+document.querySelector(".btn--roll").addEventListener("click", roll);
 document.querySelector(".btn--hold").addEventListener("click", hold);
 
 const bot = {
@@ -81,14 +79,16 @@ function roll() {
         console.log(dice1 + " + " + dice2 + " = " + (dice1 + dice2));
 
         roundScore += dice1 + dice2;
-        console.log("round-score", roundScore);
 
-        document.querySelector(
-            "#current--" + activePlayer
-        ).textContent = roundScore;
+        const cleanThrow = ![dice1, dice2].includes(1);
 
-        if (![dice1, dice2].includes(1)) {
-            alert("You rolled a 1! Lost your turn");
+        if (cleanThrow) {
+            console.log("round-score", roundScore);
+            document.querySelector(
+                "#current--" + activePlayer
+            ).textContent = roundScore;
+        } else {
+            // alert("You rolled a 1! Lost your turn");
             nextPlayer();
         }
 
