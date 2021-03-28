@@ -29,25 +29,32 @@ const bot = {
         return ![d1, d2].includes(1);
     },
 
+    riskLevel: 10,
+
     play() {
-        const diceVal = this.roll();
-        if (this.isOkToRollAgain(diceVal[0], diceVal[1])) {
-            this.currentScore += diceVal[0] + diceVal[1];
-            console.log("bot current-score: " + this.currentScore);
+        setTimeout(()=>{
+            // wait a little, check to roll again
+            const diceVal = this.roll();
+            if (this.isOkToRollAgain(diceVal[0], diceVal[1])) {
+                this.currentScore += diceVal[0] + diceVal[1];
+                console.log("bot current-score: " + this.currentScore);
 
-            if (this.currentScore > 20) {
-                this.hold();
+                if (this.currentScore > this.riskLevel) {
+                    this.hold();
+                    this.currentScore = 0;
+                    this.riskLevel += 2;
+                    return;
+                }
+
+                setTimeout(()=>{
+                    // wait a little, check to roll again
+                    this.play();
+                }, 4000);
+            } else {
+                this.riskLevel -= 3;
                 this.currentScore = 0;
-                return;
             }
-
-            setTimeout(() => {
-                // wait a little, check to roll again
-                this.play();
-            }, 2500);
-        } else {
-            this.currentScore = 0;
-        }
+        }, 2000);
     },
 };
 
@@ -84,11 +91,9 @@ function roll() {
 
         if (cleanThrow) {
             console.log("round-score", roundScore);
-            document.querySelector(
-                "#current--" + activePlayer
-            ).textContent = roundScore;
+            document.querySelector("#current--" + activePlayer).textContent = roundScore;
         } else {
-            // alert("You rolled a 1! Lost your turn");
+            alert(`Player ${activePlayer + 1} rolled a 1! Lost your turn`);
             nextPlayer();
         }
 
@@ -117,8 +122,7 @@ function hold() {
         scores[activePlayer] += roundScore;
 
         // Update UI
-        document.querySelector("#score--" + activePlayer).textContent =
-            scores[activePlayer];
+        document.querySelector("#score--" + activePlayer).textContent = scores[activePlayer];
 
         //Update score user sets
         var input = document.querySelector(".final-score").value;
@@ -135,15 +139,10 @@ function hold() {
 
         //Check if the player won
         if (scores[activePlayer] >= winningScore) {
-            document.querySelector("#name--" + activePlayer).textContent =
-                "Winner! 🏆";
+            document.querySelector("#name--" + activePlayer).textContent = "Winner! 🏆";
             hideDice();
-            document
-                .querySelector(".player--" + activePlayer)
-                .classList.add("winner");
-            document
-                .querySelector(".player--" + activePlayer)
-                .classList.remove("player--active");
+            document.querySelector(".player--" + activePlayer).classList.add("winner");
+            document.querySelector(".player--" + activePlayer).classList.remove("player--active");
 
             //Set gamePlayer state variable to false
             gamePlaying = false;
@@ -217,8 +216,9 @@ function init() {
     player0.classList.add("player--active");
 }
 
-document.querySelector("#input-form").addEventListener("submit", (e) => {
+document.querySelector("#input-form").addEventListener("submit", (e)=>{
     e.preventDefault();
-});
+}
+);
 
 init();
